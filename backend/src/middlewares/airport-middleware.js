@@ -12,7 +12,7 @@ function validateCreateRequest(req, res, next) {
   }
 
   if (!req.body.code) {
-    ErrorResponse.message = "Something went wrong while creating Airport";
+    ErrorResponse.message = "Something went wrong while creating Airports";
     ErrorResponse.error = new AppError(
       ["code  is missing"],
       StatusCodes.BAD_REQUEST
