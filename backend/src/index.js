@@ -1,9 +1,13 @@
 const express = require("express");
 
-const v1Routes = require("./v1");
+const ServerConfig = require("./config/server-config");
+const apiRoutes = require("./routes");
+const app = express();
 
-const router = express.Router();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-router.use("/v1", v1Routes);
-
-module.exports = router;
+app.use("/api", apiRoutes);
+app.listen(ServerConfig.PORT, () => {
+  console.log(`Successfully started the server on PORT : ${ServerConfig.PORT}`);
+});

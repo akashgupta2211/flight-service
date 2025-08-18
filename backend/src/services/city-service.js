@@ -1,6 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const AppError = require("../utils/errors/app-error");
-const  {CityRepository} = require("../repositories");
+const { CityRepository } = require("../repositories");
 const city = require("../models/city");
 const cityRepository = new CityRepository();
 async function createCity(data) {
@@ -9,7 +9,10 @@ async function createCity(data) {
     return city;
   } catch (error) {
     console.log(error.name);
-    if (error.name == "SequelizeValidationError") {
+    if (
+      error.name == "SequelizeValidationErroor" ||
+      error.name == "SequelizeUniqueConstraintError"
+    ) {
       let explanation = [];
       error.errors.forEach((err) => {
         explanation.push(err.message);
@@ -17,8 +20,10 @@ async function createCity(data) {
 
       throw new AppError(explanation, StatusCodes.BAD_REQUEST);
     }
+
+    console.log(error);
     throw new AppError(
-      "we got error to create Airplane",
+      "we got error to create City",
       StatusCodes.INTERNAL_SERVER_ERROR
     );
   }

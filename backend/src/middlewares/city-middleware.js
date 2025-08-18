@@ -4,7 +4,7 @@ const AppError = require("../utils/errors/app-error");
 function validateCreateRequest(req, res, next) {
   if (!req.body.name) {
     ErrorResponse.message = "Something went wrong while creating city";
-    ErrorResponse.error = new AppError(["City  name is missing"]);
+    ErrorResponse.error = new AppError(["City name is missing"]);
     return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
   }
   next();
