@@ -25,7 +25,7 @@ module.exports = {
       },
       departureAirportId: {
         type: Sequelize.STRING,
-        allowNull:false,
+        allowNull: false,
         references: {
           model: "Airports",
           key: "code",
@@ -59,6 +59,11 @@ module.exports = {
       totalSeats: {
         type: Sequelize.INTEGER,
         allowNull: false,
+      },
+      duration: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,
