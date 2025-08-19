@@ -18,7 +18,7 @@ async function createFlight(req, res) {
     SuccessResponse.data = flight;
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
   } catch (error) {
-    console.error("Error in createFlight:", error); // debug ke liye
+    console.error("Error in createFlight:", error);
     ErrorResponse.error = error.message || error;
     return res
       .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
@@ -26,6 +26,20 @@ async function createFlight(req, res) {
   }
 }
 
+async function getAllFlights(req, res) {
+  try {
+    const flight = await FlightService.getAllFlights(req.query);
+    SuccessResponse.data = flight;
+    return res.status(StatusCodes.CREATED).json(SuccessResponse);
+  } catch (error) {
+    console.error("Error in getFlight:", error);
+    ErrorResponse.error = error.message || error;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
 module.exports = {
   createFlight,
+  getAllFlights,
 };
