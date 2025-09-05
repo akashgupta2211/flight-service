@@ -1,0 +1,61 @@
+flight-booking-frontend/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── ui/                    # Reusable UI components
+│   │   │   ├── Button/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   └── index.js
+│   │   │   ├── Input/
+│   │   │   ├── Modal/
+│   │   │   ├── Loading/
+│   │   │   └── Card/
+│   │   ├── layout/                # Layout components
+│   │   │   ├── Header/
+│   │   │   ├── Footer/
+│   │   │   └── Sidebar/
+│   │   └── common/                # Common components
+│   │       ├── SearchForm/
+│   │       ├── FlightCard/
+│   │       └── DatePicker/
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   ├── Home.jsx
+│   │   │   └── components/
+│   │   ├── SearchResults/
+│   │   ├── FlightDetails/
+│   │   ├── Booking/
+│   │   └── Profile/
+│   ├── hooks/                     # Custom React hooks
+│   │   ├── useDebounce.js
+│   │   ├── useLazyLoad.js
+│   │   ├── useApi.js
+│   │   └── useLocalStorage.js
+│   ├── services/                  # API services
+│   │   ├── api.js
+│   │   ├── flightService.js
+│   │   ├── userService.js
+│   │   └── bookingService.js
+│   ├── utils/                     # Utility functions
+│   │   ├── formatters.js
+│   │   ├── validators.js
+│   │   ├── constants.js
+│   │   └── helpers.js
+│   ├── store/                     # State management
+│   │   ├── slices/
+│   │   │   ├── flightSlice.js
+│   │   │   ├── userSlice.js
+│   │   │   └── bookingSlice.js
+│   │   └── store.js
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── components.css
+│   ├── assets/
+│   │   ├── images/
+│   │   └── icons/
+│   └── App.js
+├── package.json
+└── tailwind.config.js
